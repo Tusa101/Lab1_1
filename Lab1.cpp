@@ -312,7 +312,7 @@ short order(int x)
 	} while (x > 0);
 	return order;
 }
-
+//hjh
 /* TODO №11 Реализация функции "typeInfo".
  */
 void typeInfo()
