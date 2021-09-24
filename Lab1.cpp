@@ -320,4 +320,5 @@ void showLetterCode()
 	cin >> c;
 	int c_int = static_cast<int>(c);
 	cout << "Числом, которым закодирован символ [" << c << "] является [" << c_int << "]\n";
+	cout << "Var= "<< int(c) % 8 << endl;
 }
