@@ -177,15 +177,15 @@ int main() {
 			{
 				if (a.find('.') == -1 && b.find('.') == -1)
 				{
-					int a_Int = stoi(a);
-					int b_Int = stoi(b);
-					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Int, b_Int) << "\n";
+					int a_int = stoi(a);
+					int b_int = stoi(b);
+					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_int, b_int) << "\n";
 				}
 				else
 				{
-					float a_Flt = stof(a);
-					float b_Flt = stof(b);
-					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Flt, b_Flt) << "\n";
+					float a_flt = stof(a);
+					float b_flt = stof(b);
+					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_flt, b_flt) << "\n";
 
 				}
 			}
@@ -254,21 +254,12 @@ bool str_is_number(string s)
  */
 bool belongsToInterval(int x, int bottom, int top)
 {
-	if (bottom <= top)
+	if (bottom <= top && x >= bottom && x <= top)
 	{
-		if (x >= bottom && x <= top)
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return true;
 	}
-	else
-	{
-		return false;
-	}
+	return false;
+	
 }
 
 
@@ -281,11 +272,8 @@ int Min(int a, int b)
 		return b;
 	}
 	else
-	{
-		return a;
-	}
+	return a;
 }
-
 /* TODO №9 Реализация функции "min" для вещественных аргументов.
  */
 float Min(float a, float b)
@@ -294,10 +282,7 @@ float Min(float a, float b)
 	{
 		return b;
 	}
-	else
-	{
-		return a;
-	}
+	return a;
 }
 /* TODO №10 Реализация функции "order"
 
@@ -331,20 +316,8 @@ void showLetterCode()
 {
 	char c;
 	cout << "Введите символ,чтобы узнать его значение в числовом формате:\n";
-	/*while (true)
-	{
-		c = getchar();
-		if (isalnum(c)||isalpha(c))
-		{
-			break;
-		}
-		else
-		{
-			cout << "Введена не буква, повторите попытку ввода: ";
-		}
-	}*/
 	cout << "Symbol = ";
 	cin >> c;
-	int int_c(c);
-	cout << "Числом, которым закодирован символ [" << c << "] является [" << int_c << "]\n";
+	int c_int = static_cast<int>(c);
+	cout << "Числом, которым закодирован символ [" << c << "] является [" << c_int << "]\n";
 }
