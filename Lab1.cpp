@@ -34,7 +34,7 @@ bool belongsToInterval(int x, int bottom, int top);
  * @param b второе значение
  * @return Меньшее из переданных значений.
  */
-float Min(float a,float b);
+float Min(float a, float b);
 
 /* TODO №3. Объявление функции "min".
  * Возвращает меньшее из двух целочисленных значений.
@@ -95,9 +95,9 @@ int main() {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	cout.width(20);
-	cout << setw(40) << right <<"Лабораторная работа №1.\n" ;
+	cout << setw(40) << right << "Лабораторная работа №1.\n";
 	cout << setw(48) << right << "Программа <<5 ЗАМЕЧАТЕЛЬНЫХ ФУНКЦИЙ>>\n\n";
-	
+
 	while (true)
 	{
 		char key;
@@ -108,119 +108,119 @@ int main() {
 		cout << "\n";
 		switch (key)
 		{
-			case 't':
-				typeInfo();
-				break;
-			case'b':
-			{
-				int bottom;
-				int top;
-				int x;
-				
-				cout << "Введите значения границ интервала и число для проверки принадлежности.\n";
-				
-				cout << "bottom = ";
-				cin >> bottom;
-				if (cin.fail())
-				{
-					cerr <<"Error! Type:" << typeid(invalid_argument).name() << endl;
-					return -1;
-				}
-				
-
-				cout << "top = ";
-				cin >> top;
-				if (cin.fail())
-				{
-					cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
-					return -1;
-				}
-
-				cout << "x = ";
-				cin >> x;
-				if (cin.fail())
-				{
-					cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
-					return -1;
-				}
-				if (bottom > top)
-				{
-					cerr<<"Верхняя граница меньше нижней!!!" << endl;
-					return -1;
-				}
-
-				if (belongsToInterval(x, bottom, top))
-				{
-					printf("Число %d принадлежит интервалу [%d,%d]\n", x, bottom, top);
-				}
-				else
-				{
-					printf("Число %d не принадлежит интервалу [%d,%d]\n", x, bottom, top);
-				}
-			}
+		case 't':
+			typeInfo();
 			break;
-			
-			case 'm':
+		case'b':
+		{
+			int bottom;
+			int top;
+			int x;
+
+			cout << "Введите значения границ интервала и число для проверки принадлежности.\n";
+
+			cout << "bottom = ";
+			cin >> bottom;
+			if (cin.fail())
 			{
-				string a;
-				string b;
-			
-				cout << "Введите значения чисел для нахождения наименьшего\n";
-				cout << "a = ";
-				cin >> a;
-				cout << "\n";
-				cout << "b = ";
-				cin >> b;
-				cout << "\n";
-				
-				if (str_is_number(a) && str_is_number(b))
+				cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
+				return -1;
+			}
+
+
+			cout << "top = ";
+			cin >> top;
+			if (cin.fail())
+			{
+				cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
+				return -1;
+			}
+
+			cout << "x = ";
+			cin >> x;
+			if (cin.fail())
+			{
+				cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
+				return -1;
+			}
+			if (bottom > top)
+			{
+				cerr << "Верхняя граница меньше нижней!!!" << endl;
+				return -1;
+			}
+
+			if (belongsToInterval(x, bottom, top))
+			{
+				printf("Число %d принадлежит интервалу [%d,%d]\n", x, bottom, top);
+			}
+			else
+			{
+				printf("Число %d не принадлежит интервалу [%d,%d]\n", x, bottom, top);
+			}
+		}
+		break;
+
+		case 'm':
+		{
+			string a;
+			string b;
+
+			cout << "Введите значения чисел для нахождения наименьшего\n";
+			cout << "a = ";
+			cin >> a;
+			cout << "\n";
+			cout << "b = ";
+			cin >> b;
+			cout << "\n";
+
+			if (str_is_number(a) && str_is_number(b))
+			{
+				if (a.find('.') == -1 && b.find('.') == -1)
 				{
-					if (a.find('.')==-1 && b.find('.') == -1)
-					{
-						int a_Int = stoi(a);
-						int b_Int = stoi(b);
-						cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Int, b_Int) << "\n";
-					}
-					else
-					{
-						float a_Flt = stof(a);
-						float b_Flt = stof(b);
-						cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Flt, b_Flt) << "\n";
-						
-					}
+					int a_Int = stoi(a);
+					int b_Int = stoi(b);
+					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Int, b_Int) << "\n";
 				}
 				else
 				{
-					cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
-					return -1;
-				}
-				
-			}
-				break;
-			case 'o':
-			{
-				int x;
-				cout << "Введите значение числа для нахождения количества разрядов в нем.\n";
-				cout << "x = ";
-				cin >> x;
-				if (cin.fail())
-				{
-					cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
-					return -1;
-				}
+					float a_Flt = stof(a);
+					float b_Flt = stof(b);
+					cout << "Наименьшее из чисел " << a << " и " << b << ": " << Min(a_Flt, b_Flt) << "\n";
 
-				cout << "\n";
-				cout<<"Количество разрядов в веденном числе: "<<order(x)<<"\n";
+				}
 			}
-				break;
-			case 'c':
+			else
 			{
-				showLetterCode();
+				cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
+				return -1;
 			}
-				break;
-			default:
-				cout << "Опции на такую кнопку не назначено. Повторите попытку.\n";
-				break;
+
+		}
+		break;
+		case 'o':
+		{
+			int x;
+			cout << "Введите значение числа для нахождения количества разрядов в нем.\n";
+			cout << "x = ";
+			cin >> x;
+			if (cin.fail())
+			{
+				cerr << "Error! Type:" << typeid(invalid_argument).name() << endl;
+				return -1;
+			}
+
+			cout << "\n";
+			cout << "Количество разрядов в веденном числе: " << order(x) << "\n";
+		}
+		break;
+		case 'c':
+		{
+			showLetterCode();
+		}
+		break;
+		default:
+			cout << "Опции на такую кнопку не назначено. Повторите попытку.\n";
+			break;
 		}
 		if (key == 'e')
 		{
@@ -228,8 +228,8 @@ int main() {
 			cout << "Завершение работы.\n";
 			break;
 		}
-			
-	}	
+
+	}
 	return 0;
 
 
@@ -238,10 +238,10 @@ int main() {
 bool str_is_number(string s)
 {
 	int i = 0;
-	
-	while (i<s.length())
+
+	while (i < s.length())
 	{
-		if (!isdigit(s[i])&& s[i]!='.')
+		if (!isdigit(s[i]) && s[i] != '.')
 		{
 			return false;
 		}
@@ -255,7 +255,7 @@ bool str_is_number(string s)
 bool belongsToInterval(int x, int bottom, int top)
 {
 	if (bottom <= top)
-	{ 
+	{
 		if (x >= bottom && x <= top)
 		{
 			return true;
@@ -272,8 +272,8 @@ bool belongsToInterval(int x, int bottom, int top)
 }
 
 
- /* TODO №8 Реализация функции "min" для целочисленных аргументов.
-  */
+/* TODO №8 Реализация функции "min" для целочисленных аргументов.
+ */
 int Min(int a, int b)
 {
 	if (a >= b)
@@ -312,21 +312,21 @@ short order(int x)
 	} while (x > 0);
 	return order;
 }
-//hjh
+
 /* TODO №11 Реализация функции "typeInfo".
  */
 void typeInfo()
 {
 	cout << "Информация о типах данных: \n";
-	
-	cout << "\nchar size = " << sizeof(char) << " bytes, min = " << CHAR_MIN << ", max = " << CHAR_MAX <<"\n";
+
+	cout << "\nchar size = " << sizeof(char) << " bytes, min = " << CHAR_MIN << ", max = " << CHAR_MAX << "\n";
 	cout << "short size = " << sizeof(short) << " bytes, min =" << SHRT_MIN << ", max = " << SHRT_MAX << "\n";
 	cout << "int size = " << sizeof(int) << " bytes, min =" << INT_MIN << ", max = " << INT_MAX << "\n";
 	cout << "long size = " << sizeof(long) << " bytes, min =" << LONG_MIN << ", max = " << LONG_MAX << "\n";
-	cout << "long long size = " << sizeof (long long) << " bytes, min =" << LLONG_MIN << ", max = " << LLONG_MAX << "\n";
+	cout << "long long size = " << sizeof(long long) << " bytes, min =" << LLONG_MIN << ", max = " << LLONG_MAX << "\n";
 }
- /* TODO №12 Реализация функции "showLetterCode".
-  */
+/* TODO №12 Реализация функции "showLetterCode".
+ */
 void showLetterCode()
 {
 	char c;
@@ -346,5 +346,5 @@ void showLetterCode()
 	cout << "Symbol = ";
 	cin >> c;
 	int int_c(c);
-	cout << "Числом, которым закодирован символ [" << c << "] является [" << int_c <<"]\n";
+	cout << "Числом, которым закодирован символ [" << c << "] является [" << int_c << "]\n";
 }
